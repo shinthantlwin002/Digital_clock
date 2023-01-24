@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body class=" bg-dark">
+    <div class="container p-5">
+        <div class="container border border-info border-3 col-4 mt-5  text-center align-content-center" style="height: 200px;">
+           <div class="my-5">
+                <h1 class="text-info"></h1>
+                <small class="text-info fw-light"></small> 
+           </div>
+        </div>
+    </div>
+    <script>
+        let week = [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+        ]
+
+        let month = [
+        'January', 
+        'February', 
+        'March', 
+        'April', 
+        'May', 
+        'June', 
+        'July', 
+        'August', 
+        'September', 
+        'October', 
+        'November', 
+        'December'
+        ]
+
+        function run(){
+           
+        let date = new Date()
+
+        let hour = date.getHours();
+        let min = date.getMinutes();
+        let sec = date.getSeconds();
+
+        let day = date.getDay();
+        let dd = date.getDate();
+        let mm = date.getMonth();
+        let yy = date.getFullYear();
+
+        if(hour>12){hour -= 12};
+        if(hour<10){hour = "0"+hour};
+        if(min<10){min = "0"+min};
+        if(sec<10){sec = "0"+sec};
+        if(dd<10){dd = "0"+dd};
+
+        let time = `${hour} : ${min} : ${sec}`;
+        document.querySelector("h1").innerHTML = time;
+
+        let today = `${week[day]} , ${dd} / ${month[mm]} / ${yy}`;
+        document.querySelector("small").innerHTML = today;
+        }
+        setInterval(run,1000);
+
+ 
+
+    </script>
+</body>
+</html>
